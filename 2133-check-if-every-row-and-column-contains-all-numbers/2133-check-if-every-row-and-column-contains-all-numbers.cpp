@@ -1,22 +1,19 @@
 class Solution {
 public:
     bool checkValid(vector<vector<int>>& v) {
-        int xor1 = 0, xor2 = 0,n = v.size();
-        if(n<=1) {
+        int n = v.size();
+        if(n<=1) { //edge case
             return true;
         }
-        for(int i=0;i<n;i++) {
-            xor1=0;    xor2=0;
-            for(int j=0;j<n;j++) {
-				// Checking xor column wise
-                xor1 = xor1^v[i][j]^(j+1);
-				// Checking xor row wise
-                xor2 = xor2^v[j][i]^(j+1);
+        int x=0;
+        for(int i=1;i<n+1;i++) x^=i;
+        for(int i=0;i<n;i++){
+            int row=x,col=x;
+            for(int j=0;j<n;j++){
+                row^=v[i][j]; //check for cols
+                col^=v[j][i]; //check for rows
             }
-			// If any of them are not equal to Zero 
-            if(xor1 || xor2) {
-                return false;
-            }
+            if(max(row,col)) return false;
         }
         return true;
     }
