@@ -2,14 +2,10 @@ class Solution {
 public:
     bool validMountainArray(vector<int>& arr) {
         int len=arr.size();
-        if (len<3) return 0;
-        int i=1;
-        int flag1=0,flag2=0;
-        for(;i<len and arr[i]>arr[i-1] ;i++,flag1=1) {}
-        if(i==len) return 0;
-        
-        int pivot=i;
-        for(;i<len and arr[i] <arr[i-1];i++,flag2=1){}
-        return i==len and flag1 and flag2;
+        if (len==2 ) return false;
+        int i=0,j=len-1;
+        for(;i<len-2 and arr[i] < arr[i+1];i++){}
+        for(;j-1>0 and arr[j]<arr[j-1];j--){}
+        return i>0 and j<len-1 and i==j; 
     }
 };
