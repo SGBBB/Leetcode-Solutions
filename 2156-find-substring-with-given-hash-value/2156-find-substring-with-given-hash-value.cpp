@@ -13,7 +13,7 @@ public:
     
     
     for (; i >= 0; --i,--j) {
-        hash = (hash * power + (s[i]-'a'+1)) % mod;
+        hash = (hash * power + (s[i]-'a'+1)*1) % mod;
         hash = (mod + hash - (power_k * (s[j]-'a'+1) ) % mod) % mod;
         
         cout<<"hash is " <<hash<<endl;    
