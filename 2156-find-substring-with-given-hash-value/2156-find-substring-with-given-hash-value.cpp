@@ -14,7 +14,7 @@ public:
     
     for (; i >= 0; --i,--j) {
         hash = (hash * power + val(i)) % mod;
-        hash = (mod + hash - power_k * val(j) % mod) % mod;
+        hash = (mod + hash - (power_k * val(j) ) % mod) % mod;
         
         cout<<"hash is " <<hash<<endl;    
         if (hash == hashValue)
