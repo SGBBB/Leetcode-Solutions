@@ -19,7 +19,7 @@ public:
         sort(nums.begin(),nums.end() ,cmp);
         long long sum=0;
         for(i=0;i<n;i++){
-            sum+=((nums[i]) * (cnt[i]));
+            sum=( (sum%mod) + (((nums[i]%mod) * (cnt[i]%mod))%mod))%mod;
         }
         return sum%mod;
     }
