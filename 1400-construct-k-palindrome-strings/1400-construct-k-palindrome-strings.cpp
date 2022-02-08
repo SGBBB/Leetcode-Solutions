@@ -9,9 +9,8 @@ public:
         for(char ch:s) frequency[ch-'a']++;
         int cnt=0;
         for(int i:frequency){
-            if(i){
                 cnt+=(i&1);
-            }
+            
         }
         return  cnt<=k;
     }
