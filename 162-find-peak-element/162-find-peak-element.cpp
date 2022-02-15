@@ -9,6 +9,6 @@ public:
             }
             else l=mid+1;
         }
-        return h;
+        return h;//it can be anything i means wither return l or h 
     }
 };
