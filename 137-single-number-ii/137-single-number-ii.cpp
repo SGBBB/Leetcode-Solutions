@@ -8,7 +8,7 @@ public:
                 bitSum+=((n>>i) &1) ;
             }
             if(bitSum % 3){
-                ans|=(1<<i);
+                ans|=(1<<i);//slowly n steadily im building a number
             }
         }
         return ans;
