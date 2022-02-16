@@ -8,6 +8,6 @@ public:
             next=(i==len-1) ?  0 : flowerbed[i+1]  ;
             if( !max({prev,next,curr }) ) flowerbed[i]=1,n--;
         }
-        return !max(n,0);
+        return n<=0;
     }
 };
