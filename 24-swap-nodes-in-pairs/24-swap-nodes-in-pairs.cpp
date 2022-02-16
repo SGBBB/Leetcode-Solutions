@@ -9,29 +9,23 @@
  * };
  */
 class Solution {
-    ListNode* helper(ListNode* node,int k=2){
-        if(node)
-        {
-            ListNode* temp;
-            if(!node->next) return node; //this means only one node is presnet
-            for(temp=node;k--; temp=temp->next){ }
-            //reverese the Linked List now
-            k=2;
-            ListNode* prev=NULL,*curr=node,*next;
-            while(k--){
-                next=curr->next, curr->next=prev, prev=curr,curr=next ;
-            }
-            
-            ListNode* res=helper(temp);
-            node->next=res;
-            return prev;
-            
+    ListNode* helper(ListNode* node){        
+        /*Main Logic */
+        if(!node or !node->next){            
+            return node;            
         }
-        return node;
+    ListNode* newHead=helper(node->next->next);
+    // newHead ;
+    ListNode * temp=node->next;
+    node->next= newHead;
+    temp->next=node;
+    return temp;
     }
 public:
     ListNode* swapPairs(ListNode* head) {
-        if(!head) return  head;
-        return helper(head);
+        if(!head) return head ;
+        return helper(head); 
+        
+        // return head;
     }
 };
