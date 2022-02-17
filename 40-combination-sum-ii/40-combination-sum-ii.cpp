@@ -8,6 +8,7 @@ class Solution {
             if(!target) {  ans.push_back(temp);     return ;}
             int idx,n=candidates.size();
             for(idx=start;idx<n;idx++){
+                if(candidates[idx]>target) continue;
                 if(idx == start || candidates[idx] != candidates[idx-1]){
                     temp.push_back(candidates[idx]);
                     helper(candidates,target-                                                 candidates[idx],ans,temp,idx+1,level+1);
