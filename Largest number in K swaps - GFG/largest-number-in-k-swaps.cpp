@@ -20,7 +20,7 @@ class Solution
            
            
            //choice of k
-           k=( str[idx]!=max_digit_value ) ? k-1: k;
+          k=( str[idx]!=max_digit_value ) ? k-1: k;
         //   return findMaximumNum(str,k,idx+1);
         
         for(int i=idx;i<len;i++){
@@ -45,6 +45,9 @@ class Solution
        MaximumNumber(str,ans,k);  
        return ans;
     }
+//     1
+// 3
+// 4551711527 Amazing test case to verify this algo
 };
 
 // { Driver Code Starts.
