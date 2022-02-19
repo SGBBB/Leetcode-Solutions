@@ -1,1 +1,1 @@
-​
+using ll = long long;
