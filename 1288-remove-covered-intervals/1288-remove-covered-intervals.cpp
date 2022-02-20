@@ -5,9 +5,10 @@ class Solution {
 public:
     int removeCoveredIntervals(vector<vector<int>>& intervals) {
         sort(intervals.begin(),intervals.end() ,cmp );
-        int n=intervals.size(),prev_start=-1,prev_end=-1,cnt=0;
+        int n=intervals.size(),idx=0,prev_start=-1,prev_end=-1,cnt=0;
         for(auto i:intervals ){cout<<i[0] << i[1]<<endl;
-            if(i[1]>prev_end) cnt++,prev_end=i[1];
+            if(!idx or i[1]>prev_end) cnt++,prev_end=i[1];
+            idx++;        
             
         }
         return cnt;
