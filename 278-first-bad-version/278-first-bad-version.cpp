@@ -10,7 +10,7 @@ public:
             mid=l+(h-l)/2;
             if(isBadVersion(mid)){
                 ans=mid;
-                h=mid-1;
+                h=mid-1 ;
             }            
             else l=mid+1;
         }
