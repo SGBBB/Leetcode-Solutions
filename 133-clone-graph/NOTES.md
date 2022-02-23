@@ -1,1 +1,1 @@
-​
+# Logic is simple agar koi node exist krti hai then usse simply jod do  else uske sath chalte rhoooo eventually queue khali ho jaega
