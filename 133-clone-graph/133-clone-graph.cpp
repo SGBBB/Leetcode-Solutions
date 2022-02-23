@@ -23,13 +23,27 @@ class Solution {
     unordered_map<Node* ,Node *> M;
 public:
     Node* cloneGraph(Node* node) {
-        if(!node) return node;//base case
-        if(!M.count(node) ){
-            M[node]=new Node(node->val);
-            for(auto i:node->neighbors){
-                M[node]->neighbors.push_back(cloneGraph(i));
-            }
+        if(!node) return NULL;//base case
+        Node* newNode=new Node(node->val);
+        M[node] =newNode;
+        queue<Node*> q;
+        q.push(node);
+        for(;!q.empty();){
+            
+            // for(int n=q.size();n--;){
+                Node* front_node=q.front(); q.pop();
+                     
+                   for(auto i:front_node->neighbors){
+                       if(!M.count(i)){M[i]=new Node(i->val);
+                           q.push(i);
+                           
+                       }
+                    M[front_node]->neighbors.push_back( M[i]);
+                   }
+                
+            // }
         }
+        cout<<M[node]->val;
         return M[node];
     }
 };
