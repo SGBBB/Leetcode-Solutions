@@ -20,30 +20,28 @@ public:
 */
 
 class Solution {
-    unordered_map<Node* ,Node *> M;
-public:
+    public:
     Node* cloneGraph(Node* node) {
-        if(!node) return NULL;//base case
-        Node* newNode=new Node(node->val);
-        M[node] =newNode;
-        queue<Node*> q;
-        q.push(node);
-        for(;!q.empty();){
-            
-            // for(int n=q.size();n--;){
-                Node* front_node=q.front(); q.pop();
-                     
-                   for(auto i:front_node->neighbors){
-                       if(!M.count(i)){M[i]=new Node(i->val);
-                           q.push(i);
-                           
-                       }
-                    M[front_node]->neighbors.push_back( M[i]);
-                   }
-                
-            // }
+        if (!node) {
+            return NULL;
         }
-        cout<<M[node]->val;
-        return M[node];
+        Node* copy = new Node(node -> val );
+        copies[node] = copy;
+        queue<Node*> todo;
+        todo.push(node);
+        while (!todo.empty()) {
+            Node* cur = todo.front();
+            todo.pop();
+            for (auto neighbor : cur -> neighbors) {
+                if (!copies.count(neighbor) ) {
+                    copies[neighbor] = new Node(neighbor -> val);
+                    todo.push(neighbor);
+                }
+                copies[cur] -> neighbors.push_back(copies[neighbor]);
+            }
+        }
+        return copies[node];
     }
+private:
+    unordered_map<Node*, Node*> copies;
 };
