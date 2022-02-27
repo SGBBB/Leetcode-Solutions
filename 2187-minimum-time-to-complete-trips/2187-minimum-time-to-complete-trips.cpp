@@ -1,8 +1,10 @@
 class Solution {
 public:
     long long minimumTime(vector<int>& time, int totalTrips) {
+        long long min_time=INT_MAX;
+        for(int t:time)  min_time=min(min_time,t*1LL);
+        long long l=1,h=1LL*min_time*totalTrips, ans;
         
-        long long l=1,h=1e14+1, ans;
         for( ;l<h; ){ 
             long long mid=l+(h-l)/2 ,sum=0;
             //black box vala kam 
@@ -15,6 +17,6 @@ public:
             else l=mid+1;
             // cout<<sum<<" "<<mid<<" "<<h<<endl;
         }
-        return ans;
+        return l;
     }
 };
