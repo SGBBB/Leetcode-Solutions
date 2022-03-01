@@ -15,7 +15,7 @@ public:
         for(i=1;i<n;i++){
             cnt[i]+=cnt[i-1];
         }
-        sort(cnt.begin(),cnt.end(),cmp);
+        sort(cnt.begin(),cnt.end(),greater<long long>());
         sort(nums.begin(),nums.end() ,cmp);
         long long sum=0;
         for(i=0;i<n;i++){
