@@ -1,12 +1,12 @@
 class Solution {
 public:
+    bool f(string s,string t,int m,int n){
+        if(m==0 || n==0)  {    return (m==0)?true:false;}
+        if(s[0]==t[0]) {    s=s.substr(1,s.size()-1); m--;}
+        return f(s,t.substr(1,t.size()-1),m,n-1);       
+    }
     bool isSubsequence(string s, string t) {
-        int n1=s.size(),n2=t.size(),i,j;
-        if(n1 >n2) return 0;
-        for(i=0,j=0;i<n1 and j<n2;j++){
-            if(s[i]==t[j]) i++;
-        }
-        cout<<i<<endl;
-        return i==n1;
+        int m=  s.size() ,n=t.size();
+        return f(s,t,m,n);
     }
 };
