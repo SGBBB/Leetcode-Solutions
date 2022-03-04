@@ -8,12 +8,14 @@ using namespace std;
 //User function template for C++
 
 bool cmp(char x,char y){
-    unordered_map<char,int> M={
-	        {'!',1},{'#',2},{'$',3},{'%',4}, {'&',5} ,{'*',6} ,
-	        {'@',7},{'^',8} ,{'~',9}
+    // unordered_map<char,int> M={
+	   //     {'!',1},{'#',2},{'$',3},{'%',4}, {'&',5} ,{'*',6} ,
+	   //     {'@',7},{'^',8} ,{'~',9}
 	        
-	    };
-    return M[x]<M[y] ;
+	   // };
+	   string hash="!#$%&*@^~";
+	   int position1=hash.find(x), position2=hash.find(y);
+    return position1<position2;
 }
 class Solution{
 public:	
