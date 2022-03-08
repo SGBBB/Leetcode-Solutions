@@ -25,7 +25,7 @@ public:
             fast = next(next(fast));
         }
         
-        return slow == 1 ;
+        return fast == 1 ;
     }
 //     bool isHappy(int n,int prev=-1,bool flag=0) {
 //         int temp=n;
