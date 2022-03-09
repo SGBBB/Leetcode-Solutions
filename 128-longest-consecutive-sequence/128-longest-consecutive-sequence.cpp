@@ -6,8 +6,7 @@ public:
             M[i]++;
         int ans=0;
         for(auto i:nums){
-            if(M.find(i-1)!=M.end()) continue;
-            else{
+            if(!M.count(i-1) ){
                 int size=1;
                 int curr=i+1;
                 while(M.find(curr)!=M.end() ){
