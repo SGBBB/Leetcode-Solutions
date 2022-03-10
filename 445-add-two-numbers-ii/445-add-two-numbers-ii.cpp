@@ -18,7 +18,7 @@ public:
         ListNode* dummyHead=new ListNode(-11);
         while( !s1.empty() or !s2.empty()  or carry>0) {
             ListNode* nextNode=dummyHead->next;
-            carry+=(!s1.empty()) ? s1.top()->val : 0 ;
+            carry+=(!s1.empty()) ? s1.top()->val : 0 ,
             carry+=(!s2.empty()) ? s2.top()->val : 0 ;
             if(!s1.empty()) s1.pop();
             if(!s2.empty()) s2.pop();
