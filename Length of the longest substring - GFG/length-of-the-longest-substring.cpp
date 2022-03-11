@@ -14,7 +14,7 @@ class Solution{
             // cout<< (cnt[S[j] -'a'])<<endl;
             i=max({ i , cnt[S[j] -'a' ] + 1 }),
             maxLen=max({ maxLen, j-i+1  }),
-            cnt[S[j]-'a']=j;
+            cnt[S[j]-'a']=j,
             j++;
         }
         
