@@ -7,6 +7,6 @@ public:
             if(v[m]<=v[h]) h=m;
             else l=m+1;
         }
-        return v[h];
+        return v[h]; //high is getting shrinked everytime
     }
 };
