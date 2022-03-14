@@ -10,6 +10,8 @@ public:
             if(ch=='/'){
                 if( temp=="" or temp=="." ) {
                     //ignore;
+                    temp="";
+                    continue;
                 }
                 else if( temp==".."){
                     if(st.size() )st.pop();
