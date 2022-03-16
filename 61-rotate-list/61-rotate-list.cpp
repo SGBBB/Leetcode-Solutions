@@ -18,7 +18,7 @@ public:
         for(;temp->next;len++,temp=temp->next){}
             
         k%= len,
-        temp->next=head ;
+        temp->next=head ;//linked list ko circular kiya h 
         cout<<"len is "<<len<<endl;
         int cnt=len-k;
         ListNode * prev=NULL;
