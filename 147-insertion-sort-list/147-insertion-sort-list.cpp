@@ -10,31 +10,23 @@
  */
 class Solution {
 public:
-    ListNode* insertionSortList(ListNode* head) {
-        if(!head->next) return head;  //if I m having only 1 node then return it
-        
-        ListNode *dummyNode=new ListNode(INT_MIN),*temp=head;
-        dummyNode->next=new ListNode(temp->val);
-        temp=temp->next;
-        ListNode *curr=dummyNode->next,*prev=dummyNode;
-        cout<<"bachodi "<<(curr->val)<<(temp->val)<<endl;
-        for(;temp;temp=temp->next){
-            if(temp->val>=curr->val) 
-                curr->next=new ListNode(temp->val),curr=curr->next;
-            else{
-                //iska matlab khi beech mei insert krege ham
-                for(;prev->next and !(prev->val<=temp->val and prev->next->val>=temp->val);)
-                    prev=prev->next;
-                ListNode *holder=prev->next;
-                prev->next=new ListNode(temp->val),
-                prev=prev->next,
-                prev->next=holder;
-                
-                prev=dummyNode;
+    ListNode* insertionSortList(ListNode* head) 
+    {
+        ListNode *r=new ListNode(0);
+        ListNode *q=head;
+        while(q)
+        {
+            ListNode *p =r;
+            while(p->next!=NULL && p->next->val<q->val)
+            {
+                p=p->next;
             }
-             
+            ListNode *k=q->next;
+            q->next=p->next;
+            p->next=q;
+            
+            q=k;
         }
-        
-        return dummyNode->next;
+        return r->next;
     }
 };
