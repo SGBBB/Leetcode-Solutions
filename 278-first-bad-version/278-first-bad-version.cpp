@@ -8,7 +8,8 @@ public:
         long l=1,h=n,mid=0,ans=INT_MAX-1;
         while(l<=h){
             mid=l+(h-l)/2;
-            if(isBadVersion(mid)){
+            //if you found a bad version then shrink serach space towards left
+            if(isBadVersion(mid)){ 
                 ans=mid;
                 h=mid-1 ;
             }            
