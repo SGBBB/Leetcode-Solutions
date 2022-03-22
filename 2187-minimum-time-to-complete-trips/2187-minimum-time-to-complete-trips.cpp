@@ -6,10 +6,12 @@ public:
         long long l=1,h=1LL*min_time*totalTrips, ans;
         
         for( ;l<=h; ){ 
-            long long mid=l+(h-l)/2 ,sum=0;
+            long long mid=l+(h-l)/2 ,
+            sum=0;
             //black box vala kam 
             for(int t:time)  sum+=(  (mid)/t  );
             //sum is holding the no of tripps all cars can make in total
+            //if sum is >= totalTrips then hold the mid value because it can be the potential ans let you shrink the search space to left.
             if(sum>=totalTrips) {
                 h=mid-1;
                 ans=mid;
