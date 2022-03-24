@@ -12,7 +12,7 @@
 
 
 class Solution {
-   
+   //return type of reverse function is vector<ListNode* > of size 2 where the guy at 0th index is the head and guy at the 1st index is the guy next to head when only  1 node is left.
     vector<ListNode*>  reverse(ListNode * head, int left,int right){
         vector<ListNode*> ans(2);
         if(left<right){
