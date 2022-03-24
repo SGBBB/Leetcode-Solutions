@@ -17,15 +17,13 @@ public:
         while(q)
         {
             ListNode *p =r;
+            /* the moment when p->next->val went smaller than q->val ,then do interchanging. */
             while(p->next!=NULL && p->next->val<q->val)
-            {
                 p=p->next;
-            }
             ListNode *k=q->next;
             q->next=p->next;
             p->next=q;
-            
-            q=k;
+            q=k;//updating q to its next value
         }
         return r->next;
     }
