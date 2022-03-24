@@ -11,26 +11,26 @@
 class Solution {
 public:
     ListNode* deleteDuplicates(ListNode* head) {
-        ListNode* prev=new ListNode();
-        ListNode* p=prev;
+        ListNode *p,*prev;
+        p=prev=new ListNode(-1);
         while(head){
             ListNode* cur=head;
-            int c=0;
-            while(cur && cur->val==head->val){
-                cur=cur->next;c++;
-            }
-            if(c>1){
+            //use Line Sweep algo  that means we arent taking anyone among duplicate guys
+            int cnt=0;
+            while(cur && cur->val==head->val)
+                cur=cur->next,cnt++;
+            if(cnt>1) {
                 prev->next=cur;
                 head=cur;
             }
-            else {
-                prev->next=head;
-                    prev=head;
-                head=head->next;
+            else{ //this block is executed when my  cnt==1
+                 prev->next=head,
+                 prev=prev->next,
+                 head=head->next;
             }
             
         }
         return p->next;
+        
     }
-    
 };
