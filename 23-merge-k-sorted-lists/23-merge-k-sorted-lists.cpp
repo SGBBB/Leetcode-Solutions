@@ -21,9 +21,10 @@ public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         priority_queue<ListNode* ,vector<ListNode* > ,compare> pq;
         ListNode* dummyNode=new ListNode(-1),*tail=dummyNode;
+        if(lists.empty()) return NULL;
         for(auto i:lists){
             if(i)
-            {pq.push(i);}
+                {cout<<i->val<<" ";pq.push(i);} /*Here im just inserting head of every list to min heap*/
         }
         for(;!pq.empty();){
             ListNode* temp=pq.top();
