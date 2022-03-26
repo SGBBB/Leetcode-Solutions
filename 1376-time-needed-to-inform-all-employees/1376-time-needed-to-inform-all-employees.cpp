@@ -12,10 +12,10 @@ class Solution {
     int dfs(int node,vector<int> adj[100001]){
         int res=0;
         for(auto it:adj[node]){
-            res=max(res,dfs(it,adj));
+            res=max(res,dfs(it,adj)); //The jist of the. problem lies here that we need to compute maximum at every level from root(direct manager) until we reach leaf node
             // if(it==1 or it==5)cout<<res<<" "<<endl;
         }
-        return res+t[node];
+        return res+t[node];     // adding  the information time required by every manager to maximum value extracted from children levels.
     }
 public:
     int numOfMinutes(int n, int headID, vector<int>& manager, vector<int>& informTime) {
