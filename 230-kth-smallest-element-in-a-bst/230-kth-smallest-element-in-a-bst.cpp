@@ -18,11 +18,9 @@ class Solution {
         //if i have got something from node->left then return it this will prevent us to unecessary visit right child
         if(root->left &&  L!=0) return L;
         int R=helper(root->right,k,cnt);
-        int res=0;
-        //This snippppet is to check whether you have received any node number from either child , if received any node value beside 0 so consider returning it to ancestor
-        if(root->left and L  ) res=L;  
-        if(root->right and R ) res=R;
-        return res;
+        //This snippppet is to check whether you have received any node number from right child , if received any node value excluding 0 so consider returning it to ancestor 
+        if(root->right and R ) return R;
+        return 0;//return 0 if i have not received any node number from either children
     }
 public:
     int kthSmallest(TreeNode* root, int k) {
