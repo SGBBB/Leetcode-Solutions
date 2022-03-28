@@ -15,6 +15,8 @@ class Solution {
         int L=helper(root->left, k, cnt);
         cnt++;
         if(cnt==k) return root->val;
+        //if i have got something from node->left then return it this will prevent us to unecessary visit right child
+        if(root->left &&  L!=0) return L;
         int R=helper(root->right,k,cnt);
         int res=0;
         //This snippppet is to check whether you have received any node number from either child , if received any node value beside 0 so consider returning it to ancestor
