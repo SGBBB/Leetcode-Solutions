@@ -111,41 +111,41 @@ class Solution{
     bool flag=0;
   public:
     // returns the inorder successor of the Node x in BST (rooted at 'root')
-    // Node * inOrderSuccessor(Node *root, Node *x)
-    // {
-    //     Node * successor=NULL;
-    //     while(root){
-    //         if( x->data< root->data) {
-    //             if(x->data!=root->data )
-    //             successor=root;
-    //             cout<<"successir "<<successor->data<<endl;
-    //             root=root->left;
-    //         }
-    //         else if(x->data   >= root->data){
-                
-    //             root=root->right;
-    //         }
-    //     }
-    //     return successor;
-    // }
     Node * inOrderSuccessor(Node *root, Node *x)
     {
-        if(root){
-            Node* L=inOrderSuccessor(root->left,x);
-            if(flag) {
-                flag=0;
-                // cout<<root->data<< " "<<endl;
-                return root;
-                
+        Node * successor=NULL;
+        while(root){
+            if( x->data< root->data) {
+                if(x->data!=root->data )
+                successor=root;
+                // cout<<"successir "<<successor->data<<endl;
+                root=root->left;
             }
-            if(x->data==root->data) flag=1;
-            if(L) return L;
-            Node* R=inOrderSuccessor(root->right,x);
-            if(R) return R;
+            else if(x->data   >= root->data){
+                
+                root=root->right;
+            }
         }
-        return NULL;
-        
+        return successor;
     }
+    // Node * inOrderSuccessor(Node *root, Node *x)
+    // {
+    //     if(root){
+    //         Node* L=inOrderSuccessor(root->left,x);
+    //         if(flag) {
+    //             flag=0;
+    //             // cout<<root->data<< " "<<endl;
+    //             return root;
+                
+    //         }
+    //         if(x->data==root->data) flag=1;
+    //         if(L) return L;
+    //         Node* R=inOrderSuccessor(root->right,x);
+    //         if(R) return R;
+    //     }
+    //     return NULL;
+        
+    // }
 };
 
 // { Driver Code Starts.
