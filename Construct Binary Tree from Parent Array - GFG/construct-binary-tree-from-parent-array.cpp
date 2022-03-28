@@ -87,7 +87,11 @@ class Solution{
         /*initially creating a hashmap */
         unordered_map<int, Node*> M;
         for(int i=0;i<N;i++)
-        M[i]=new Node(i);
+            M[i]=new Node(i);
+        /*Here we are hashing the nodes 
+        so that everytime we don't create new nodes 
+        and loose earlier attached children to this node.
+        */
         Node* save_root;
         Node* root;
         for(int i=0;i<N;i++){
@@ -97,7 +101,12 @@ class Solution{
             else {
                 Node* temp=M[i];
                 int val=par[i];
-                root=M[val]; /*virtually assigning parent */
+                
+                /*virtually attaching parent to children nodes 
+                if our parent's left child isnt yet attached 
+                then lets attach left child first.
+                If left child is already attched then attach right child
+                */
                 
                 if(!M[val]->left) M[val]->left=temp;
                 else M[val]->right=temp;
