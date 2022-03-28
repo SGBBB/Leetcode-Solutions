@@ -15,7 +15,7 @@ class Solution {
 public:
     vector<int> findMode(TreeNode* root) {
         
-        //do inorder  traversal then  check whether pre is equivalent to cur if yes increment mod 
+        //do inorder  traversal then  check whether pre is equivalent to cur if yes increment cnt 
         int cur=root->val;
         if(root->left) //if root ->left is not null then only go to its left subtree
             findMode(root->left);
@@ -23,7 +23,7 @@ public:
         if(cur!=pre){
             
             pre=cur;//update pre every time if its not equal to cur
-            cnt=1;
+            cnt=1; 
         }
         else cnt++;//if cur==pre then do cnt++;
         cout<<cnt<<mode<<" node "<<root->val<<endl; 
