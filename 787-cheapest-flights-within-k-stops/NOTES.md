@@ -1,0 +1,10 @@
+5
+[[0,1,5],[1,2,5],[0,3,2],[3,1,2],[1,4,1],[4,2,1]]
+0
+2
+2
+​
+​
+```
+https://leetcode.com/problems/cheapest-flights-within-k-stops/discuss/1532900/C%2B%2B-3-Methods-or-BFS-or-Bellman-Ford-or-Dijksrta-or-No-TLE
+```
