@@ -7,6 +7,6 @@ public:
         if(n>1){
             return !divisorGame(n-1);// the purpose of sing ! is that if any any guy at below level wins the game then this will be a loose for current guy that why i'm inverting the result for current guy
         }
-        return false;
+        return false;//if n==1 then current guy is left with no moves so he is fucked up then he will loose thats why i have returned false;
     }
 };
