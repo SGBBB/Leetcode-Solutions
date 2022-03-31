@@ -11,7 +11,6 @@
 class Solution {
     vector<ListNode*>partition_list(ListNode* head , int remaining, int part_size ,int k ) {
         vector<ListNode *> ans;
-        ans.clear();
         if(k>0 ) {
             ListNode* dummyHead=new ListNode(0) ,*curr=dummyHead ;
             int temp=part_size+(remaining>0);
