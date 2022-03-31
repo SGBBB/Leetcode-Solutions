@@ -10,21 +10,20 @@
  */
 class Solution {
     vector<ListNode*>partition_list(ListNode* head , int remaining, int part_size ,int k ) {
-        vector<ListNode *> ans;ans.clear();
-        
+        vector<ListNode *> ans;
+        ans.clear();
         if(k>0 ) {
-            ListNode* dummyHead=new ListNode(-11) ,*curr=dummyHead ;
+            ListNode* dummyHead=new ListNode(0) ,*curr=dummyHead ;
             int temp=part_size+(remaining>0);
             for(;temp-->0;){
                 ListNode* newNode=head;
                 head=head->next,
                 newNode->next=NULL,
                 curr->next=newNode ,
-                curr=curr->next    
-                    ;
-            } 
+                curr=curr->next;
+            }
             ans.push_back(dummyHead->next);
-            vector<ListNode * > res=partition_list(head,remaining-1,part_size, k-1) ;
+            vector<ListNode * > res=partition_list(head,max(0,remaining-1),part_size, k-1) ;
             ans.insert(ans.end(), res.begin() ,res.end());
         }
         return ans;
