@@ -17,9 +17,12 @@ public:
     }
 
     bool check(ListNode* p) {
-        if (NULL == p) return true;
-        bool isPal = check(p->next) & (temp->val == p->val);
-        temp = temp->next;
-        return isPal;
+        bool isPal=1;
+        if (p){
+            isPal = check(p->next) & (temp->val == p->val);
+            temp = temp->next;
+            // cout<< p->val<<" "<< res<<endl;
+        }
+        return isPal;//if(p is null then return true)
     }
 };
