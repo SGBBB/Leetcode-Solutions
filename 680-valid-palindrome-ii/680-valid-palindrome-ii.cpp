@@ -1,21 +1,39 @@
 class Solution {
-    public:
+    
+        
+public:
     bool validPalindrome(string s) {
-        return helper(s, 0, s.size() - 1);
+        // cout<<s.size()-1<<endl;
+        return isValid(s,0,s.size()-1);
     }
-
-    bool helper(string &s, int l, int r,bool can_del = 1) {
-        if(l >= r)
-            return true;
-
-        // same
-        if(s[l] == s[r])
-            return helper(s, l+1, r-1,can_del);
-        // Not same for 2nd time
-        if(!can_del)
-            return false;
-        // not same for first time
-       
-        return helper(s, l+1, r,0) || helper(s, l, r-1,0);
+    bool isValid(string &s,int i,int j,bool can_del=true){
+        // cout << "i. and j are  "<<i<< " "<<j<<endl;
+        if(i>=j) return 1;
+        
+            if(s[i]==s[j]  ) return isValid(s,i+1,j-1,can_del);
+            //Now s[i]!=s[j] 
+                if(!can_del)
+                    return 0;  
+            return isValid(s,i+1,j,0) || isValid(s,i,j-1,0);
+            
     }
 };
+
+/*
+"ee c   c c cbebaeeabeb c c   c eea"
+"   eeccccbebaeeabebccceea "
+if given string is already a palindrome then its ok return true indeed!
+i think its not necessary to deletee a char 
+but if we delete we can delete not more than 1 char 
+let me think aboiut ithrt test cases
+aacav
+eeccccbebaeeabebccceea
+xaaac
+abcd
+adpopaa
+we use two pointers one placed at left other placed at right (n-1  pe )
+we do i++,j-- until we reach a point when s[i]!=s[j]
+at this moment two cases arise
+1. delete left guy and test whether left+1 till right is pallindromic
+2. is string pallindromic after deleting right guy
+*/
