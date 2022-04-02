@@ -1,12 +1,6 @@
 class Solution {
     
-        
-public:
-    bool validPalindrome(string s) {
-        // cout<<s.size()-1<<endl;
-        return isValid(s,0,s.size()-1);
-    }
-    bool isValid(string &s,int i,int j,bool can_del=true){
+       bool isValid(string &s,int i,int j,bool can_del=true){
         // cout << "i. and j are  "<<i<< " "<<j<<endl;
         if(i>=j) return 1;
         
@@ -16,7 +10,13 @@ public:
                     return 0;  
             return isValid(s,i+1,j,0) || isValid(s,i,j-1,0);
             
+    } 
+public:
+    bool validPalindrome(string s) {
+        // cout<<s.size()-1<<endl;
+        return isValid(s,0,s.size()-1);
     }
+    
 };
 
 /*
