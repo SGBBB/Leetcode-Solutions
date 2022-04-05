@@ -5,7 +5,7 @@ public:
         for(auto e : flights) {
             graph[e[0]].push_back({e[1], e[2]});
         }
-        priority_queue<vector<int>, vector<vector<int>>, greater<vector<int>>> pq;
+        priority_queue<vector<int>, vector<vector<int>>, greater< vector<int>> > pq;
         // {dist_from_src_node, node, number_of_stops_from_src_node}
         pq.push({0, src, 0});
         
@@ -23,8 +23,8 @@ public:
             int cnode=temp[1];
             int cstop=temp[2];
             pq.pop();
-            
-            if(cstop>stops[cnode] || cstop>k+1)
+            //This is optimisations to avoid tle
+            if(cstop>stops[cnode] || cstop>k+1) //You will must reach to dst node in atmost k+1 steps
                 continue;
             
             stops[cnode]=cstop;
