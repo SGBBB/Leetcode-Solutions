@@ -21,6 +21,11 @@ public:
             //     if(ans.size()==k) break;
             // }
             ans.insert(ans.end(),bucket[i].begin(),bucket[i].end());
+            /* 
+            i just apened bucket[i] vector to ans  becoz 
+            lets take a test case where I have all unique elements  [1,3,2,4]
+            so k ka value at wprst will be 4 becoz there are 4 unique elements
+            */
                 
         }
         return ans;
@@ -31,8 +36,5 @@ public:
 Aim is to get time complexity less than nlogn
 have to do this in linear time complexity.
 
-lets take a test case where I have all unique elements 
-[1,3,2,4]
-now if we do bucketing then  index 1 wil be filled with all ellements .
-// NOTE: it's given that  min value of k will be equal to no of unique elemtns in array
+
 // */
