@@ -1,21 +1,24 @@
 class Solution {
 public:
     bool checkValidString(string s ,int open_count=0, int close_count=0) {
-        if( close_count <0  ) return false;
-        int len=s.size() ;
-        
-        if(len){
-            //do some business logic
-            
-            char ch=s.front();
-            s=s.substr(1);
-                open_count =(ch=='(')?open_count+1: (ch==')') ?max(open_count-1,0) :max(open_count-1,0)  ,   
-                close_count =(ch=='(')?close_count+1:(ch==')')?close_count-1: close_count+1 ;
-            return (ch=='(')? checkValidString(s,open_count,close_count) : 
-                  (ch==')') ? checkValidString(s,open_count,close_count) :
-                    checkValidString(s,open_count,close_count);
-            
-        }
-        return !open_count;
+        int cmin=0,cmax=0;
+        // Im damn sure my ans is gonna lie btw cmin and cmax
+         for(char ch:s){
+             if(ch=='('){
+                 cmin++,cmax++;
+             }
+             else if(ch==')'){
+                 cmin--,cmax--;
+             }
+             else{
+                 cmin--,cmax++;
+             }
+             if(cmax<0) {
+                 //  Currently, don't have enough open parentheses to match close parentheses-> Invalid
+                 return 0;
+             }
+             cmin=max(cmin,0);
+         }
+        return !cmin;//just checking whether there is sime balanced parenthesis or not
     }
 };
