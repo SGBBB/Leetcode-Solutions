@@ -16,7 +16,7 @@ public:
                 h=mid-1;
                 ans=mid;
             }
-            else l=mid+1;
+            else l=mid+1;//if sum is less than total trips then obviously i must increase the total time 
             // cout<<sum<<" "<<mid<<" "<<h<<endl;
         }
         return l;
