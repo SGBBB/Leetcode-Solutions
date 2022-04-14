@@ -30,7 +30,8 @@ public:
         q.push(target);        
         visited[target]=true;
         while(q.size()>0){
-            /*breaking once k==0*/    
+            /*breaking once k==0*/ 
+            // if(!k ) cout<< q.front()->val <<endl;
             if(!k) break;
             int n=q.size();
             for(int i=0;i<n;i++){
