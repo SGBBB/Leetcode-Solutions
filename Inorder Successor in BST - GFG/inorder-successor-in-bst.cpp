@@ -115,9 +115,10 @@ class Solution{
     {
         Node * successor=NULL;
         while(root){
-            if( x->data< root->data) {
-                if(x->data!=root->data )
-                successor=root;
+            //You are trailing from root to either left or right subtree.
+            if( x->data< root->data ) {
+                // if(x->data!=root->data )
+                    successor=root;
                 // cout<<"successir "<<successor->data<<endl;
                 root=root->left;
             }
@@ -128,24 +129,6 @@ class Solution{
         }
         return successor;
     }
-    // Node * inOrderSuccessor(Node *root, Node *x)
-    // {
-    //     if(root){
-    //         Node* L=inOrderSuccessor(root->left,x);
-    //         if(flag) {
-    //             flag=0;
-    //             // cout<<root->data<< " "<<endl;
-    //             return root;
-                
-    //         }
-    //         if(x->data==root->data) flag=1;
-    //         if(L) return L;
-    //         Node* R=inOrderSuccessor(root->right,x);
-    //         if(R) return R;
-    //     }
-    //     return NULL;
-        
-    // }
 };
 
 // { Driver Code Starts.
