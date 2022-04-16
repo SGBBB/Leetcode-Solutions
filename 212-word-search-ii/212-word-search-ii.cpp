@@ -41,7 +41,7 @@ public:
         root=new Node();
         
         int m=board.size(),n=board[0].size();
-        for(string i:words) insert(i);
+        for(string str:words) insert(str);
         set<string> res;
         for(int i=0,j=0;i<m;i++){
             for(j=0;j<n;j++){
