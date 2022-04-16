@@ -13,9 +13,12 @@ class Solution
        if(k>0){
            int start=idx+1;
            int max_digit_value=str[idx];
+        //   cout<<"max_digit_value at begining  "<<max_digit_value << endl;
            for(;start<len;start++){
+            //   cout<<"max_digit_value "<<max_digit_value << endl;
                if(str[start]>max_digit_value)
-               max_digit_value=str[start];
+                    max_digit_value=str[start];
+                
            }
            
            
@@ -27,7 +30,7 @@ class Solution
             if(str[i]==max_digit_value){
                 swap(str[i],str[idx]);
                 if(str>ans)
-                ans=str;
+                    ans=str;
                 MaximumNumber(str,ans,k,idx+1);
                 swap(str[i],str[idx]);
                 
@@ -48,6 +51,11 @@ class Solution
 //     1
 // 3
 // 4551711527 Amazing test case to verify this algo
+/*
+ 1
+1293498
+
+*/
 };
 
 // { Driver Code Starts.
