@@ -10,18 +10,19 @@ public:
         while(j<n2){
             if(M[s[j]]>0) cnt--;
             M[s[j]]--;
-            j++;
+            // j++;
             while(cnt==0){
-                if(j-i<minLen){
-                    minLen=j-i ,
+                if(j-i+1<minLen){
+                    minLen=j-i+1 ,
                     minStart=i;
                 }
                 M[s[i]]++;
-                if(M[s[i]]  >0 ){/*if the character is required then it will automatically get greater than 0*/
+                if(M[s[i]]  >0 ){/*if the character is required then it will automatically go greater than 0*/
                     cnt++;
                 }
                 i++;
-            }            
+            } 
+        j++;
         }        
         return (minLen==INT_MAX)?"":s.substr(minStart,minLen);
     }
