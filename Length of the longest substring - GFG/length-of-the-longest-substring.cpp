@@ -12,6 +12,8 @@ class Solution{
         int i=0,j=0;
         while( j<S.size()){
             // cout<< (cnt[S[j] -'a'])<<endl;
+            //im doing cnt[S[j]-'a'] + 1 becoz i will start my new journey after 
+            //last found position +1
             i=max({ i , cnt[S[j] -'a' ] + 1 }),
             maxLen=max({ maxLen, j-i+1  }),
             cnt[S[j]-'a']=j,
