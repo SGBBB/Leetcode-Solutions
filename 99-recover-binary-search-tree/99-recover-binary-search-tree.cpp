@@ -16,13 +16,11 @@ class Solution {
     void inorder(TreeNode* root){
         if(!root) return ;
         inorder(root->left);
+        //logic application is started from here
         /*
         There might be 2 distortions 
         if we havent found first distortion and cur->val<prev->val 
         */
-            if(root->val==2 ) {
-            cout<<prev->val<<first<<endl;
-        }
         if( !first  && root->val<prev->val ){
             first=prev;
         
@@ -34,6 +32,7 @@ class Solution {
             second=root;
         }
         prev=root; //updating prev every time 
+        //done with applying logic
         inorder(root->right);
     }
 public:
