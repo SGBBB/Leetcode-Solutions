@@ -8,7 +8,9 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-/*Lets not do this using recursioin instead lets use some other technique*/
+/*
+
+*/
 
 
 class Solution {
@@ -39,7 +41,7 @@ public:
         // }
         // if(left==right) tailNode=head->next;
         // return head;
-        ListNode *pre=new ListNode(INT_MIN), *cur;
+        ListNode *pre=new ListNode(-1), *cur;
         pre->next=head,
         cur=pre;
         int pos=0;
