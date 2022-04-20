@@ -10,18 +10,17 @@ class Solution{
 public:
 	
 	int findMaximum(int arr[], int n) {
-	    int l=0,h=n-1,ans=-1;
+	    int l=0,h=n-1;
 	    while(l<h){
 	        int mid=(l+h)>>1;//cout<<"mid is "<<mid<<endl;
 	        if(arr[mid]>arr[mid+1] ){
-	            h=mid; 
-	            ans=mid;
+	            h=mid;
 	        }
 	        else{
 	            l=mid+1;
 	        }
 	    }
-	    return arr[h];
+	    return arr[l];
 	}
 };
 
