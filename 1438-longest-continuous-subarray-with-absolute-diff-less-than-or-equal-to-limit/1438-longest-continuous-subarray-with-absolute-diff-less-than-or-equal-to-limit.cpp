@@ -46,7 +46,7 @@ public:
             while (!mind.empty() && A[j] < mind.back()) mind.pop_back();
             maxd.push_back(A[j]);
             mind.push_back(A[j]);
-            while(maxd.front() - mind.front() > limit) {
+            if(maxd.front() - mind.front() > limit) {
                 if (maxd.front() == A[i]) maxd.pop_front();
                 if (mind.front() == A[i]) mind.pop_front();
                 ++i;
@@ -55,8 +55,8 @@ public:
         }
         
         cout<<j<<" "<<i<<endl;
-        // return j - i;
-        return maxLen;
+        return j - i;
+        // return maxLen;
         //Time Complexity is linear
     }
 };
