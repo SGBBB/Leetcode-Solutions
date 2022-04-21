@@ -1,6 +1,6 @@
 class MyHashSet { 
     //The intend of this problem is to know whether candidate know internal implementation of ahshset?
-    int len=10;
+    int len=1000;
     
 public:
     vector<list<int>> m;
