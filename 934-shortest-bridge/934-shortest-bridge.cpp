@@ -23,7 +23,7 @@ public:
             q.pop();
             for (int d = 0; d < 4; ++d) {
                 int x = i + dir[d], y = j + dir[d + 1];
-                if (min(x, y) >= 0 && max(x, y) < A.size()) {
+                if (min(x, y) >= 0 && max(x, y) < A.size() ) {
                     if (A[x][y] == 1){
                         /*printing the matrix */
     // for(auto i:A){
@@ -33,7 +33,7 @@ public:
     // }
                         return A[i][j] - 2;
                     }
-                    if (A[x][y] == 0) {
+                    else if (A[x][y] == 0) {
                         A[x][y] = A[i][j] + 1;
                         q.push({x, y});
                     }
@@ -47,3 +47,13 @@ public:
     return 0;
 }
 };
+/*
+
+intuition : fill cells of one island with 2 ,now keep on assigning it's adj val by +1, if while travelling level by level you touched the bump of anpther island then you reached to another island its time to return your min steps to reach second island.
+
+3 2 3
+4 3 4
+5 0 1
+
+
+*/
