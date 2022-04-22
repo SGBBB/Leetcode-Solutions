@@ -1,6 +1,6 @@
 class MyHashMap {
     vector<list< pair<int,int> >>m;
-    int len=1e6+1;
+    int len=1001;
 public:
     MyHashMap() {
         m.resize(len);
