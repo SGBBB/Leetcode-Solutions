@@ -7,6 +7,7 @@ public:
                 if(cnt) cnt--;
                 continue;
             }
+            //if you have met some other directory except current dir then increase then cnt
             if(str!="./") cnt++;
         }
         return cnt;
