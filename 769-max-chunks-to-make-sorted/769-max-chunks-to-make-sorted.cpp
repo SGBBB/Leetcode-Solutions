@@ -10,7 +10,7 @@ public:
                 maxi=max(maxi,st.top());
                 st.pop();
                 }                       
-           st.push(maxi); 
+           st.push(maxi); //push maxi guy amongst the local part
         }
         return st.size();
     }
