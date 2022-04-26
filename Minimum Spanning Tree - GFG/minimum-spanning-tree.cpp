@@ -5,11 +5,12 @@ using namespace std;
  // } Driver Code Ends
 
 class DSU {
-	vector<int> parent, size, rank;
+	vector<int> parent, size ;
  
 public:
+    //This DSU supports both 0 and 1 based indexing
 	DSU(int n) {
-		for (int i = 0; i <= n; i++) {
+		for (int i = 0; i < n; i++) {
 			parent.push_back(i);
 			size.push_back(1);
 		}
