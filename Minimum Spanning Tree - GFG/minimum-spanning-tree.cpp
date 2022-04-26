@@ -10,7 +10,7 @@ class DSU {
 public:
     //This DSU supports both 0 and 1 based indexing
 	DSU(int n) {
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i <= n; i++) {
 			parent.push_back(i);
 			size.push_back(1);
 		}
