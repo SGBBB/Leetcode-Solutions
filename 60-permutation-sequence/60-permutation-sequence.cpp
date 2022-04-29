@@ -3,7 +3,7 @@ class Solution {
     
 string findPermutation(vector<int> &num , int req){
     
-    if(num.size() ==0   || req>fact[num.size()]){
+    if(num.size() ==0    ){
         return "";
     }
     cout<<"bc "   <<endl;
