@@ -19,12 +19,14 @@ public:
     int count(int N){
         vector<int> dp(N+1,0);
         dp[0]=1;
-        // for(int i=2;i<N+1;i+=2){
-        //     for(int j=0;j<i;j+=2)
-        //         dp[i]=dp[i]*dp[N-i-2];
-        // }
+        for(int i=2;i<N+1;i+=2){
+            for(int j=0;j<i;j+=2)
+                dp[i]=dp[i]*dp[N-i-2];
+        }
         // return dp[N];
         return countHandshakes(N,dp);
+        
+        // return dp[N];
     }
 };
 
