@@ -4,29 +4,21 @@ using namespace std;
 
  // } Driver Code Ends
 class Solution{
-    int countHandshakes(int N,vector<int> &dp){
-        
-        int ways=0;
-        if(dp[N]) return dp[N];
-        if(N==0 || N==2) return dp[N]=1;
-        
+    int countWays(int N,vector<int> &dp){
+        if(dp[N] ) return dp[N];
+        int cnt=0;
         for(int i=0;i<N;i+=2){
-            ways+=countHandshakes(i,dp)*countHandshakes(N-i-2,dp);
+            cnt+=countWays(i,dp)*countWays(N-i-2,dp);
         }
-        return dp[N]=ways;
+        return dp[N]=cnt;
     }
 public:
     int count(int N){
-        vector<int> dp(N+1,0);
+        vector<int> dp(N+1); 
+        fill(dp.begin(),dp.end(),0);
         dp[0]=1;
-        for(int i=2;i<N+1;i+=2){
-            for(int j=0;j<i;j+=2)
-                dp[i]=dp[i]*dp[N-i-2];
-        }
-        // return dp[N];
-        return countHandshakes(N,dp);
         
-        // return dp[N];
+        return countWays(N,dp);
     }
 };
 
