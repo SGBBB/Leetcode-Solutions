@@ -10,14 +10,14 @@ public:
         string ans="";
         for(auto [ch,cnt]:frequency)  {cout<<ch << " "<<cnt <<endl;pq.push( {ch, cnt} );}
         // for(;pq.size();pq.pop()) cout<<pq.top().first<<endl;
-        for( ;pq.size(); ){
+        for( ;!pq.empty(); ){
             char ch1=pq.top().first;
             int cnt1=pq.top().second;
             pq.pop();
             int len=min(repeatLimit, cnt1 ),remaining=cnt1-len;
             
             ans+=string(min(repeatLimit, cnt1 ) , ch1 );
-            if(cnt1-repeatLimit>0){//if unchi aukat vala bnda ki freq rehti hai then 
+            if(cnt1-repeatLimit>0){//if unchi aukat vala bnda ki freq rehti hai then  then  vo is body m ayega
                 char ch2;
                 int cnt2;
                 if(pq.size()){
