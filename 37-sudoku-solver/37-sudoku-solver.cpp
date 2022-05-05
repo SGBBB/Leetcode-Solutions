@@ -24,12 +24,12 @@ public:
                 {
                     for(char c='1';c<='9';c++)
                     {
-                        if(isValid(i,j,board,c))
-                        {   //cout<< c<<endl;
+                        if(isValid(i,j,board,c)){
+                            //cout<< c<<endl;
                             board[i][j]=c;
                             if(solve(board ))
-                             {return true;}
-                            board[i][j]='.';  
+                                return true;
+                            board[i][j]='.'; // undoing the earlier marked place
                         }
                     }
                     //im unable to fill  cell so im returning false;
