@@ -6,15 +6,19 @@ public:
         string res;
         for (auto ch : s) {
             //some business logic
-            // "abbbaa"
-            //  3
+            /* 
+            
+            "abbbaa"
+            3
+            
+            */  
             if(!st.empty()  && st.back().first==ch){
-                if( ++st.back().second==k )
+                if( ++st.back().second==k ) //everytime im incresing the cnt if st.back char is equivalent to ch
                     st.pop_back();
             }
             else 
                 st.push_back({ch,1});
-            
+            //if you met a new  char then do ots fresh entry with occurance 1.
               
         }
         for(auto it:st){
