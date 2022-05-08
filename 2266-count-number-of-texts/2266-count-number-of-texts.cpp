@@ -11,21 +11,25 @@ public:
             char ch=pressedKeys[i-1];
             //whether its equal to previous char or not dp[i] has state influence  of dp[i-1]
             dp[i]=dp[i-1];
-            
+            //now checking if current char ==pressedKeys[i-2] and previous guys 
+            int limit=(ch=='7' || ch=='9' ) ?4 :3;
+            for(int j=i-2; j>=i-limit && j>=0  && ch==pressedKeys[j] ;j--){
+                dp[i]=(dp[i]+dp[j])%mod;
+            }
 
 //         
-        // now checking if current char ==pressedKeys[i-2] 
-        if(i>=2 && ch==pressedKeys[i-2]){
-            dp[i]=(dp[i]+dp[i-2])%mod;
-            // Further conditions will only be checked only if ch==pressedKeys[i-2]
-            // now checking if current char ==pressedKeys[i-3]
-            if(i>=3 && ch==pressedKeys[i-3]){
-                dp[i]=(dp[i]+dp[i-3])%mod;
-                // now checking if current char ==pressedKeys[i-4] 
-                if(i>=4 && ch==pressedKeys[i-4] && (ch=='7' || ch=='9') )
-                    dp[i]=(dp[i]+dp[i-4])%mod;
-            }
-        }
+        // // now checking if current char ==pressedKeys[i-2] 
+        // if(i>=2 && ch==pressedKeys[i-2]){
+        //     dp[i]=(dp[i]+dp[i-2])%mod;
+        //     // Further conditions will only be checked only if ch==pressedKeys[i-2]
+        //     // now checking if current char ==pressedKeys[i-3]
+        //     if(i>=3 && ch==pressedKeys[i-3]){
+        //         dp[i]=(dp[i]+dp[i-3])%mod;
+        //         // now checking if current char ==pressedKeys[i-4] 
+        //         if(i>=4 && ch==pressedKeys[i-4] && (ch=='7' || ch=='9') )
+        //             dp[i]=(dp[i]+dp[i-4])%mod;
+        //     }
+        // }
         }
         for(int i=0;i<=n;i++)
             cout<< dp[i]<<" ";
