@@ -19,30 +19,25 @@ class Solution {
     
     */
 public:
-        int maximumWhiteTiles(vector<vector<int>>& t, int len) 
-	{
-	    int res = 0, j = 0, cover = 0;//cover is length of white tiles covered by carpet in current window
-	    sort(t.begin(), t.end());
-	    for (int i = 0; i < t.size();)//carpet starts from j and end at i
-	    {
-	        if (j == i || t[j][0] + len > t[i][1]) //carpet starting from j is exceeding this window(as this window is ending at i)
-			{
-	            cover += t[i][1] - t[i][0] + 1;//this window is being extended to cover this patch also
-	            res = max(res, cover);
-	            ++i;//let this window try to cover next patch by expanding its right end
-	        }
-	        else//carpet starting from jth patch is not able to cover this whole patch at i 
-			{
-	            res = max(res, cover + max(0, t[j][0] + len - t[i][0]));
-	            					/* Partial length covered by 
-	            					   carpet in this patch
-	            					*/
-	            cover -= (t[j][1] - t[j][0] + 1);//window will slide towards right hence remove the contribution of cover given by left most patch of current window. 
-	            ++j;//slide the window towards its right
-	        }
-            cout<<cover << " "<< res<<endl;
-	    }
-	    // return min(res,len);
-            return res;
+        int maximumWhiteTiles(vector<vector<int>>& tiles, int len) {
+            
+    //Sort tiles by start index , this also gurantee that tiles will also sorted by end index due to non overlapping condition
+    sort(tiles.begin(), tiles.end());
+    int n = tiles.size();
+    int cover=0,res=0;
+        //here e is acting as the end of tile and s is acting as the start of tile
+    for(int s=0,e=0 ;e<n ;  ){
+        if( e==s || tiles[s][0]+len>tiles[e][1] ){
+            cover+=tiles[e][1]-tiles[e][0]+1;
+            res=max(res,cover);
+            e++;
+        }
+        else{
+            res=max(res,cover+ max(0, tiles[s][0]+len-tiles[e][0] ) );
+            cover-=tiles[s][1]-tiles[s][0]+1;
+            s++;
+        }
     }
+    return min(len,res);
+        }
 };
