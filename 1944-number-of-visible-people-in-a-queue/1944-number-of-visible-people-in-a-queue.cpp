@@ -1,6 +1,6 @@
 class Solution {
     /*
-    
+    Do heavy emphasis on this phrase: Ans will be submitted
     You can see the right next greater element.
 Your left next greater element can see you.
 
@@ -13,6 +13,16 @@ Your left next greater element can see you.
     10 6 8 5 11 
     
      0 2 3  
+     
+     Try to think for smaller test cases
+     like below:
+     [10, 6]
+     above array is already monotonically decreasing you if you dont do some extra effort then ans for 10  will not be incremented by 1.
+     
+     Scene : You are at 6 and you already have 10 inserted in your stack 
+     As the stack is monotonically decreasing
+     try to think can you see 6 from last greater height? if yes then 
+     do ans[st.top()]++
 */
 public:
     vector<int> canSeePersonsCount(vector<int>& heights) {
