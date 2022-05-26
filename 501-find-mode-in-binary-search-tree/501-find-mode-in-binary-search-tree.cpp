@@ -10,7 +10,7 @@
  * };
  */
 class Solution {
-    int cnt=1,mode=0,pre=INT_MIN;
+    int cnt=1,max_frequency=0,pre=INT_MIN;
     vector<int> ans;
 public:
     vector<int> findMode(TreeNode* root) {
@@ -26,14 +26,14 @@ public:
             cnt=1; 
         }
         else cnt++;//if cur==pre then do cnt++;
-        cout<<cnt<<mode<<" node "<<root->val<<endl; 
-        if(cnt>mode) {
+        // cout<<cnt<<max_frequency<<" node "<<root->val<<endl; 
+        if(cnt>max_frequency) {
                 ans.clear();
         //if cnt>mode then remove already sitting elements inside ans vector
                 ans.push_back(cur),
-                mode=cnt;
+                max_frequency=cnt;
             }
-            else if(cnt==mode){
+            else if(cnt==max_frequency){
                 ans.push_back(cur);
                 
             }
