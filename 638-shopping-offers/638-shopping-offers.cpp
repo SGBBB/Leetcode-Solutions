@@ -1,5 +1,8 @@
+map<vector<int> ,int> stored_states;
 class Solution {
+    
 public:
+    
     /*
     [2,3,4]
     
@@ -21,10 +24,11 @@ int shoppingOffers(vector<int>& price, vector<vector<int>>& special,vector<int> 
         
         int n=price.size();
         int min_cost=0;
+    
         for(int i=0;i<n;i++){
             min_cost+=(price[i]*needs[i]);
         }
-        
+         
         // Iterating to each special offers 
         for(auto it:special){
             
@@ -51,7 +55,15 @@ int shoppingOffers(vector<int>& price, vector<vector<int>>& special,vector<int> 
             }
             
         }
+        stored_states[needs]=min_cost;
         return min_cost;
         
     }
+    /*
+    [1,1,1]
+[[1,1,0,0],[2,2,1,0]]
+[1,1,1]
+
+    
+    */
 };
