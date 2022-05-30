@@ -17,7 +17,7 @@ public:
     
     */
     
-int shoppingOffers(vector<int>& price, vector<vector<int>>& special,vector<int> needs) {
+int shoppingOffers(vector<int>& price, vector<vector<int>>& special,vector<int> &needs) {
         
         int n=price.size();
         int min_cost=0;
@@ -27,23 +27,28 @@ int shoppingOffers(vector<int>& price, vector<vector<int>>& special,vector<int> 
         
         // Iterating to each special offers 
         for(auto it:special){
-            vector<int> needs_subtracted(n);
+            
             int flag=1;
             for(int i=0;i<n;i++){
                 if(it[i]>needs[i]){
                     flag=0; break;  
                 }
-                else 
-                    needs_subtracted[i]=needs[i]-it[i];
+                    
             }
             // current discount isnt appropriate
             if (!flag)
                 continue;
             
             // now cur shopping offer is appropriate
-            
-            int cur_cost=it[n] +shoppingOffers(price,special,needs_subtracted);
+            for(int i=0;i<n;i++){
+                needs[i]=needs[i]-it[i];
+            }
+            int cur_cost=it[n] +shoppingOffers(price,special,needs);
             min_cost=min( { min_cost,cur_cost } );
+            //undoing backtracking step 
+            for(int i=0;i<n;i++){
+                needs[i]=needs[i]+it[i];
+            }
             
         }
         return min_cost;
