@@ -1,25 +1,33 @@
 int dp[2001][2001];
 class Solution {
-    int f(int idx,int k,vector<vector<int>>& piles ){
+    int findMaxValue( int k,vector<vector<int>>& piles ,int idx=0 ){
         int n=piles.size();
-        if(idx==n || !k) return 0;
-        if(dp[idx][k]!=-1) return dp[idx][k];
-        int exclude_pile=0,include_pile=0,maxi=0;
-        maxi=f(idx+1,k , piles);
-        int cnt=0,sz=sz=piles[idx].size();
-        for(int i=0;i<min(sz,k);i++){
-            
-            include_pile+=piles[idx][i]; cnt++;
-            // cout<<exclude_pile<<" "<<include_pile<< "  "<<
-            //     f(idx+1,k-(i+1),piles)<<" "<<idx<<" k is "<<k<<i<<cnt<<endl;
-            maxi=max(maxi,include_pile+f(idx+1,k-(i+1),piles) );
-        }
         
-        return dp[idx][k]=maxi;
+         if(idx<0 || k<1)
+             return 0;
+        //Now I have k>1
+        if(dp[idx][k]>-1) 
+            return dp[idx][k];
+//I'll try to pick coin from top of every pile so everytime Im having n choices
+        int sum=0;
+        int len=min( k,(int)piles[idx].size() );
+        int include=0,
+            exclude=findMaxValue(k,piles,idx-1);// skipping the current pile
+        for(int i=0;i<len;i++){
+             
+            
+            int topCoinValue=piles[idx][i];
+            sum+=topCoinValue;
+            //Calling funciton to perform recursion
+            include=max( {include , sum+findMaxValue( k-i-1,piles,idx-1 )} )  ;
+            
+             
+        }
+        return dp[idx][k]=max(include,exclude);
     }
 public:
     int maxValueOfCoins(vector<vector<int>>& piles, int k) {
         memset(dp,-1,sizeof dp);
-        return f(0,k,piles);
+        return findMaxValue( k,piles,piles.size()-1);
     }
 };
