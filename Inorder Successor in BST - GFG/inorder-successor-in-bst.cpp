@@ -117,8 +117,7 @@ class Solution{
         while(root){
             //You are trailing from root to either left or right subtree.
             if( x->data< root->data ) {
-                // if(x->data!=root->data )
-                    successor=root;
+                successor=root;
                 // cout<<"successir "<<successor->data<<endl;
                 root=root->left;
             }
@@ -128,6 +127,7 @@ class Solution{
             }
         }
         return successor;
+        //Time complexity will be O(height of tree)
     }
 };
 
