@@ -55,6 +55,7 @@ public:
         
     */
     int makeConnected(int n, vector<vector<int>>& connections) {
+        int originaln=n;
         int len=connections.size();
         // if count of connection     is insufficient
         if(len<n-1)
@@ -77,8 +78,8 @@ public:
                 redundantConnections++;
             }
         }
-        
-        // return min(redundantConnections,(int)(n-connectedComponents.size()));
+        cout<<"len is "<<len<<" "<<redundantConnections<<" "<<connectedComponents.size() <<endl;
+        cout<<" my ans " <<min(redundantConnections,(int)(originaln-connectedComponents.size() +1));
         return n-1;
     }
 };
