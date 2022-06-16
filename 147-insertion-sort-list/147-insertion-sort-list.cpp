@@ -12,19 +12,19 @@ class Solution {
 public:
     ListNode* insertionSortList(ListNode* head) 
     {
-        ListNode *r=new ListNode(0);
-        ListNode *q=head;
+        ListNode *dummyNode=new ListNode(0);
+        ListNode *q=head; // q is just giving the nodes to fit in sorted list.
         while(q)
         {
-            ListNode *p =r;
+            ListNode *cur =dummyNode;
             /* the moment when p->next->val went smaller than q->val ,then do interchanging. */
-            while(p->next!=NULL && p->next->val<q->val)
-                p=p->next;
-            ListNode *k=q->next;
-            q->next=p->next;
-            p->next=q;
-            q=k;//updating q to its next value
+            while(cur->next!=NULL && cur->next->val<q->val)
+                cur=cur->next;
+            ListNode *nextNode=q->next; //saving q->next
+            q->next=cur->next; //  q ke right se connect krre h
+            cur->next=q; //q ke left se connect krre h
+            q=nextNode;    //updating q to its next value
         }
-        return r->next;
+        return dummyNode->next;
     }
 };
