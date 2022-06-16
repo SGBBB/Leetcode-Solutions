@@ -34,7 +34,7 @@ public:
         //second step mei I'm assigning random pointers correspondoing to every node
         
         for(temp=head ;temp ;temp=temp->next->next){
-            temp->next->random= !(temp->random) ? (NULL): temp->random->next ;
+            temp->next->random= !(temp->random) ? (temp->random): temp->random->next ;
         }
         
         //I beleive until now everything is all good to go
