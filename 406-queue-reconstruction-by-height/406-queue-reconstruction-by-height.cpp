@@ -11,6 +11,16 @@ public:
         for(auto i:people){
             cout<< i[0]<<" "<<i[1]<<endl;
         }
+        /*
+        After sorting the elements you will get  this
+[7,0] [7,1] [6,1]  [5,0] [5,2] [4,4] 
+ 
+ 
+After this you can apply insertion sort
+you will get this result
+[5,0] [7,0] [5,2] [6,1] [4,4]  [7,1]     
+        
+        */
         vector<vector<int>> res;
         for(int i = 0; i < people.size(); i++){
             res.insert(res.begin()+people[i][1], people[i]);
