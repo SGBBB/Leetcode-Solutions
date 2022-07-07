@@ -20,18 +20,27 @@ class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         priority_queue<ListNode* ,vector<ListNode* > ,compare> pq;
+         
         ListNode* dummyNode=new ListNode(-1),*tail=dummyNode;
         if(lists.empty()) return NULL;
         for(auto i:lists){
             if(i)
-                {cout<<i->val<<" ";pq.push(i);} /*Here im just inserting head of every list to min heap*/
+                {//cout<<i->val<<" ";
+                 pq.push(i);} /*Here im just inserting head of every list to multiset*/
         }
+    
+        // cout<<"bawa "<<pq.size() <<endl;
         for(;!pq.empty();){
-            ListNode* temp=pq.top();
-            pq.pop();
+            ListNode* temp= pq.top(); 
+            pq.pop(  );
+            if( !pq.empty() )cout<<"pq.top() is "<< (( pq.top())->val) <<" ";
             tail->next=temp;
             tail=temp;
-            if(temp->next) pq.push(temp->next);
+            if(temp->next) {
+                pq.push(temp->next);
+            }
+            
+            cout<<endl;
             
         }
         return dummyNode->next;
