@@ -15,7 +15,7 @@ class Solution {
                     continue;
                 sides[k]-=matchsticks[start];
                 bool response=backtrack(matchsticks,sides,start+1);
-                if(response)
+                if(response==true)
                     return true;
                 sides[k]+=matchsticks[start]; //undo step get back the previous state of sides array
                 
@@ -36,6 +36,7 @@ public:
             sum+= stick;
         if ( matchsticks.size()<4 || sum%4)
             return false;
+        //Decresingly sorting becoz there are large length matches and these matches might be larger than side of resulting square
         sort(matchsticks.rbegin(),matchsticks.rend());
         vector<int> sides({{sum/4,sum/4,sum/4,sum/4}});
         return backtrack(matchsticks,sides);
