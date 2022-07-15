@@ -4,6 +4,7 @@ class Solution {
     int r,c;
     int findArea(vector<vector<int>> &grid,int i,int j){
         int curArea=1;
+        grid[i][j]=0;
             for(int k=0;k<4;k++){
                 int newi=i+directions[k],
                     newj=j+directions[k+1];
@@ -11,11 +12,11 @@ class Solution {
                 if( min({newi,newj})<0  || newi>r-1 || newj>c-1 || 
                     grid[newi][newj]==0 )
                     continue;
-                grid[i][j]=0; //marking cur cell visited 
+                 //marking cur cell visited 
                 curArea+=findArea(grid,newi,newj);
-                grid[i][j]=-1; //undo step
+                
             }
-        grid[i][j]=0;//marking current cell visited 
+        
         return curArea;
     }
 public:
