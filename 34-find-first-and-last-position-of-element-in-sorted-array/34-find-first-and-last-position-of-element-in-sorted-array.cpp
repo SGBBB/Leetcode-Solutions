@@ -8,8 +8,8 @@ public:
         while(l<=h){
             int mid=((h+l)/2);
             if(nums[mid]>=target){
-                if(nums[mid]==target)first=mid;
-                h=mid-1;
+                if(nums[mid]==target)first=mid; 
+                h=mid-1; //since i need first occurance so have to narrow down search to left
             }
             else l=mid+1;  
         }
