@@ -11,17 +11,17 @@
  */
 class Solution {
     //Ye solution ne moj krdeee
-    TreeNode *prev=NULL;
+    TreeNode *next=NULL;
 public:
     void flatten(TreeNode* root) {
         if(root){
             flatten(root->right);
             flatten(root->left);
             
-            //I'm done visiting my lef tand right subtree
-            root->right=prev,
+            //I'm done visiting my left and right subtree
+            root->right=next,
             root->left=NULL,
-            prev=root;
+            next=root;
             
         }
     }
