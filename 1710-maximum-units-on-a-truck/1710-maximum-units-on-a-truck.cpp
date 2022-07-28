@@ -1,28 +1,29 @@
+bool cmp(vector<int> v1,vector<int> v2){
+    if(v1[1]!=v2[1])
+        return v1[1]>v2[1];
+    return v1[0]<v2[0];
+}
 class Solution {
-    static bool cmp(vector<int> &a,vector<int> &b){
-        return a[1]>b[1];
-    }
 public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
+        // done with sorting 
         sort(boxTypes.begin(),boxTypes.end(),cmp);
-        int ans=0,tc=truckSize;
-        for(auto i:boxTypes){
-        
-            if(tc<=i[0]) {ans+=( tc *i[1]); return ans;}
-            else 
-                {
-                    ans+=(i[0]*i[1]);
-                    tc-=i[0];
-                }       
-        
-        cout<<tc<<" "<<ans<<endl;
-    }
-        return ans;
+        int cnt=0;
+        for(auto it:boxTypes){
+            /*
+            
+            if truckSize <0 return cnt
+            */
+            if( truckSize<0 )
+                return cnt;
+            cnt+= min({truckSize,it[0]})*it[1] ;
+            truckSize-=min({truckSize,it[0]});
+        }
+        return cnt;
     }
 };
-
 /*
-88
-27
+
+5*2 + 2*5 + 4*2 + 3*3
 
 */
