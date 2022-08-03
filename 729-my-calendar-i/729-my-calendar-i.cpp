@@ -34,14 +34,17 @@ public:
     }
     
     bool book(int start, int end) {
+        // Find the next greater pair
         auto  nextPair=S.upper_bound({start,end});
-         
+        //If next greater pair exist 
         if(nextPair!=S.end() ){
             vector<int> arr=*nextPair;
             if( arr[0]<end) return false;
         }
+        //
         if(nextPair!=S.begin() ) {
-            vector<int> arr=*(--nextPair);
+            --nextPair;
+            vector<int> arr=*(nextPair);
             if(  start<arr[1])
                 return false;
         }
