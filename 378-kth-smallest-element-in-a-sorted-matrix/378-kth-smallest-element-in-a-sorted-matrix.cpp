@@ -44,11 +44,15 @@ public:
         while(lowNum<=highNum){
             int midNum=lowNum+(highNum-lowNum)/2;
             int res=countLessOrEqual(matrix,midNum);
-            if(res>=k){
+            if(res==k){
                 highNum=midNum-1;
                 
                 bestAns=midNum;
                 cout<<" bestAns "<<bestAns<< " "<<res<<" "<<midNum <<endl;
+            }
+            else if(res>k){
+                highNum=midNum-1;
+                bestAns=midNum;
             }
             else{
                 lowNum=midNum+1;
