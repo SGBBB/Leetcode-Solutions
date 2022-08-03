@@ -41,9 +41,10 @@ public:
             vector<int> arr=*nextPair;
             if( arr[0]<end) return false;
         }
-        //
+        // if left smallest pair exist
         if(nextPair!=S.begin() ) {
             --nextPair;
+            //locating left smallest pair
             vector<int> arr=*(nextPair);
             if(  start<arr[1])
                 return false;
