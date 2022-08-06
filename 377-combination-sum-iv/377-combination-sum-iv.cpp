@@ -1,10 +1,33 @@
-
+using ll=long long;
 class Solution {
-    vector<int> dp;
+    vector<uint> dp;
 public:
+    /*
+    0  1   2    3    4     <-targets
+    1  1   2    3    7
+    
+    
+       1    2   3 <-elements
+    0  
+    1  1     
+    2  2
+    3  1
+    4
+    
+    
+    */
     int combinationSum4(vector<int>& nums, int target ){
-        dp.resize(target+1,-1);
-        return combinationSum4Helper(nums,target  );
+        dp.resize(target+1,1);
+        int n=nums.size();
+        for(int i=1;i<=target;i++){
+            dp[i]=0;
+            for(int j=0;j<n;j++){
+                if(nums[j]<=i)
+                    dp[i]+=dp[i-nums[j]];
+            }
+        }
+        return dp[target];
+        // return combinationSum4Helper(nums,target  );
     }
     int combinationSum4Helper(vector<int>& nums, int target) {
         //if target is 0 then return 0;
