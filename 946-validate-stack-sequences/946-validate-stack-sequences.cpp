@@ -2,7 +2,7 @@ class Solution {
 public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped) {
         stack<int> st;
-        // set<int> poppedElements(popped.begin(),popped.end());
+         
         int i=0;
         for(int val:pushed) {
             st.push(val);
