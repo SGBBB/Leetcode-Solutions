@@ -69,19 +69,19 @@ class Solution {
 public:
     int maxSumSubmatrix(vector<vector<int>>& matrix, int target) {
          
-        // int r=matrix.size(),c=matrix[0].size(),ans=INT_MIN,chk1=0;
-        // //iterating through each row
-        // for(int i=0;i<r;i++){
-        //     vector<int>a(c,0);
-        //     //iterating through start of current row until the remaining rows
-        //     for(int j=j;j<r;j++){
-        //         //travel through each column 
-        //         for(int k=0;k<c;k++)a[i]+=v[j][k];
-        //         int maxArea=find_max( a,target );
-        //         ans=max(ans,maxArea);
-        //     }
-        // }
-        // return ans ;
+        int r=matrix.size(),c=matrix[0].size(),ans=INT_MIN ;
+        //iterating through each row
+        for(int i=0;i<r;i++){
+            vector<int>a(c,0);
+            //iterating through start of current row until the remaining rows
+            for(int j=i;j<r;j++){
+                //travel through each column 
+                for(int k=0;k<c;k++)a[k]+=matrix[j][k];
+                int maxArea=f( a,target );
+                ans=max(ans,maxArea);
+            }
+        }
+        return ans ;
         
         int n = matrix.size();
         
@@ -106,7 +106,7 @@ public:
                 
                 // find maximum subarray having sum less than equal to k
                 
-                int curr_max = find_max(col_array, target);
+                int curr_max = f(col_array, target);
                 
                 // update the maximum sum
                 
