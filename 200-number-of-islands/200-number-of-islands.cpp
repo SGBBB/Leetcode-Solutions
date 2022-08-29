@@ -8,7 +8,7 @@ class Solution {
         for(int k=0;k<4;k++){
             
             int newi=i+dir[k],newj=j+dir[k+1];
-            //ensuring whether coming cell is under boundry and is 1
+            //ensuring whether coming cell is under boundry and is '1'
             if(min(newi,newj)>-1 && newi<r && newj<c && grid[newi][newj]=='1'){
                 eraseIslands(grid,newi,newj);
             }
