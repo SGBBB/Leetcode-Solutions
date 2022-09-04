@@ -26,6 +26,9 @@ num%k   2 4 1 0
             sum+=i;
             
             //Im doing (sum-k) becoz until cur sum, We must have encountered some k sums subarrays in my arr
+            /*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Emphasis on this fact:If we have seen the same remainder before,
+it means the subarray sum if a multiple of k
+    */
             if( M.count(sum%k) ){
                 if( (sum%k) && idx-M[sum%k]>=2 )
                     return true;
